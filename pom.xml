@@ -51,6 +51,10 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.camel.quarkus</groupId>
+      <artifactId>camel-quarkus-seda</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

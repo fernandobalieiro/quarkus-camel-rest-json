@@ -43,6 +43,14 @@ public class Routes extends RouteBuilder {
                 .endChoice()
             .end()
             .marshal().json();
+
+        from("platform-http:/vegetables?httpMethodRestrict=GET")
+            .setBody().constant(vegetables)
+            .marshal().json()
+            .to("seda:vegetables");
+
+        from("seda:vegetables")
+            .log("Fruit received: ${body}");
         // @formatter:on
     }
 }
